@@ -1,0 +1,24 @@
+﻿@using DemoShoppingWebsite.Models
+@model IEnumerable<table_Product>
+@{
+    ViewBag.Title = "商品瀏覽";
+}
+
+<div class="row" style="margin-top:10px">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="~/image/@item.Image" style="width:300px;height:270px" />
+                <div class="caption">
+                    <h3>@item.Name</h3>
+                    <h4>單價:@item.Price</h4>
+                    <p>
+                        <a href="@Url.Action("AddCar","Member")?ProductId=@item.ProductId" class="btn btn-primary">加入購物車</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>5
+
